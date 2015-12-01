@@ -1,0 +1,89 @@
+.sub-title {
+    padding: 5em 0 0
+}
+
+p {
+	text-align:center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+}
+
+.header {
+    height:20.2em 
+}
+
+.title {
+    padding: 6.5em 0 0;
+    text-align: center;
+    
+}
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 4em;
+}
+
+.img-responsive{
+	max-width:100%;
+	height:auto;
+}
+
+/*Change margin of images*/
+.row.center-block {
+  display: block;
+  margin: 7em 3em;
+  position:relative;
+}
+
+.img-title{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+	opacity:0;
+    text-decoration:underline;
+
+	
+}
+.body{
+	padding-bottom:70px;
+}
+
+/*Make navbar transparent */
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    height: 2.1em;
+}
+
+/*Change navbar left */
+.nav.navbar-nav li a {
+    color: black;
+}
+
+/* Enable hover for nav dropdown */
+.dropdown:hover .dropdown-menu {
+display: block;
+}
+
+/* Hover underline for nav bar */
+ul.nav a:hover{
+    text-decoration:underline;
+}
+
+/* Change margin of left navbar */
+#first-navbar-title {
+    margin-left: 1em;
+}
+
+/* Change margin of right navbar */
+.btn-default {
+    margin-right:2.5em;
+    margin-bottom:1em
+}
+
+
+
