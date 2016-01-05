@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     
     //Animate main page images
-    $('.center-block').mouseover(function(){
+    $('.my-img').mouseover(function(){
         $('p', this).animate({opacity:1});
         $('img', this).animate({opacity:0});
         
