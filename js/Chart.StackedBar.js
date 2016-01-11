@@ -81,13 +81,17 @@
 						sum = 0;
 
 					for(var i = 0; i < datasets.length; i++) {
-						sum += datasets[i].bars[barIndex].value;
+						if (datasets[i].bars[barIndex]){
+                            sum += datasets[i].bars[barIndex].value;
+                        }
 					}
 					for(i = dsIndex; i < datasets.length; i++) {
 						if(i === dsIndex && value) {
 							offset += value;
 						} else {
-							offset = +offset + +datasets[i].bars[barIndex].value;
+                            if (datasets[i].bars[barIndex]){
+							 offset = +offset + +datasets[i].bars[barIndex].value;
+                            }
 						}
 					}
 
@@ -111,7 +115,9 @@
 					var sum = 0;
 
 					for(var i = 0; i < datasets.length; i++) {
-						sum += datasets[i].bars[barIndex].value;
+                        if (datasets[i].bars[barIndex]){
+						  sum += datasets[i].bars[barIndex].value;
+                        }
 					}
 
 					if(!value) {
@@ -123,7 +129,17 @@
 					}
 
 					return this.calculateY(value);
-				}
+				},
+                addXLabelOrdered : function(index, label){
+                    this.xLabels.splice(index, 0, label);
+                    this.valuesCount++;
+                    this.fit();
+                },
+                removeXLabelOrdered : function(index, label){
+                    this.xLabels.splice(index, 1);
+                    this.valuesCount--;
+                    this.fit();
+                }
 			});
 
 			this.datasets = [];
@@ -158,6 +174,8 @@
 					label : dataset.label || null,
 					fillColor : dataset.fillColor,
 					strokeColor : dataset.strokeColor,
+                    highlightFill : dataset.highlightFill,
+                    highlightStroke : dataset.highlightStroke,
 					bars : []
 				};
 
@@ -506,11 +524,47 @@
 			//Then re-render the chart.
 			this.update();
 		},
+        addDataOrdered : function(index, valuesArray, label){
+			//Map the values array for each of the datasets
+			helpers.each(valuesArray,function(value,datasetIndex){
+				if (helpers.isNumber(value)){
+					//Add a new point for each piece of data, passing any required data to draw.
+					//Add 0 as value if !isNumber (e.g. empty values are useful when 0 values should be hidden in tooltip)
+					this.datasets[datasetIndex].bars.splice(index, 0, new this.BarClass({
+						value : helpers.isNumber(value)?value:0,
+						label : label,
+						x: this.scale.calculateBarX(this.scale.valuesCount+1),
+						y: this.scale.endPoint,
+						width : this.scale.calculateBarWidth(this.datasets.length),
+						base : this.scale.endPoint,
+						strokeColor : this.datasets[datasetIndex].strokeColor,
+						fillColor : this.datasets[datasetIndex].fillColor,
+                        highlightFill : this.datasets[datasetIndex].highlightFill,
+						highlightStroke : this.datasets[datasetIndex].highlightStroke,
+                        datasetLabel : this.datasets[datasetIndex].label,
+                        height: this.scale.endPoint
+					}));
+                    this.data.datasets[datasetIndex].data.splice(index, 0, helpers.isNumber(value)?value:0);
+				}
+			},this);
+
+			this.scale.addXLabelOrdered(index, label);
+			//Then re-render the chart.
+			this.update();
+		},
 		removeData : function(){
 			this.scale.removeXLabel();
 			//Then re-render the chart.
 			helpers.each(this.datasets,function(dataset){
 				dataset.bars.shift();
+			},this);
+			this.update();
+		},
+        removeDataOrdered : function(index){
+			this.scale.removeXLabelOrdered(index);
+			//Then re-render the chart.
+			helpers.each(this.datasets,function(dataset){
+				dataset.bars.splice(index, 1);
 			},this);
 			this.update();
 		},
