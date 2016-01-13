@@ -17,7 +17,7 @@
         .x.axis path {
           display: none;
         }
-        
+
 
         /*---------------------------------------------------------DROPDOWN----------------------------------------------------------------*/
 
@@ -60,10 +60,10 @@
         .show {display:inline-block;}
 
 
-/*---------------------------------------------------------DROPDOWN----------------------------------------------------------------*/ 
+/*---------------------------------------------------------DROPDOWN----------------------------------------------------------------*/
         #myDropdown2 a.checked, #myDropdown a.checked, #myDropdown3 a.checked{
             background:url(http://cdn1.iconfinder.com/data/icons/fatcow/16x16_0020/accept.png) 0 5px no-repeat;
-        } 
+        }
 
     </style>
     <body>
@@ -82,12 +82,12 @@
                 <a >2014/15</a>
             </div>
         </div>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>
-            
-            
+
+
             // D3 STUFF -------------------------------------------------------------------------------------------------------------
 
             var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -114,22 +114,22 @@
                 .attr("height", height + margin.top + margin.bottom)
               .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            
+
             var filteredData;
             var fullData;
 
             d3.csv("data.csv", type, function(error, data) {
               // Error check
               if (error) throw error;
-              
+
               fullData = data;
-              
+
               // Filter Data for just the AHS Faculty
               filteredData = fullData.filter(function(row){
                   return (row["Faculty"] == "AHS" && row["Year"] != "2012/13")
               });
-              
-              // Map out domain 
+
+              // Map out domain
               x.domain(filteredData.map(function(d) { return d.Year; }));
               y.domain([0, d3.max(filteredData, function(d) { return d.Graduate; })]);
 
@@ -147,7 +147,7 @@
                   .attr("dy", ".71em")
                   .style("text-anchor", "end")
                   .text("Number of Students");
-              
+
               svg.selectAll(".bar")
                   .data(filteredData)
                 .enter().append("rect")
@@ -168,20 +168,20 @@
                       .attr("fill","steelblue");
                   });
             });
-            
+
             d3.select("p.update")
                 .on("click", function(){
-                
+
                 filteredData = fullData.filter(function(row){
                   return (row["Faculty"] == "ARTS" && row["Year"] != "2012/13");
                 });
 
                 y.domain([0, d3.max(filteredData, function(d) { return d.Graduate; })]);
-                
+
                 svg.select(".y.axis")
                     .transition().duration(1700)
                     .call(yAxis);
-                
+
                 svg.selectAll(".bar")
                   .data(filteredData)
                   .transition().delay(function(d, i){
@@ -191,7 +191,7 @@
                   .attr("y", function(d) { return y(d.Graduate); })
                   .attr("height", function(d) { return height - y(d.Graduate); });
 
-                
+
             });
 
             d3.select("body").selectAll("p.add")
@@ -205,21 +205,21 @@
                   .attr("width", x.rangeBand())
                   .attr("y", height)
                   .attr("height", 0);
-                
+
                 filteredData = fullData.filter(function(row){
                   return row["Faculty"] == "AHS";
                 });
-                
+
                 y.domain([0, d3.max(filteredData, function(d) { return d.Graduate; })]);
                 x.domain(filteredData.map(function(d) { return d.Year; }));
                 svg.select(".y.axis")
                     .transition().duration(800)
                     .call(yAxis);
-                
+
                svg.select(".x.axis")
                     .transition().duration(800)
                     .call(xAxis);
-                
+
                 svg.selectAll(".bar")
                   .data(filteredData)
                 .enter().append("rect")
@@ -229,7 +229,7 @@
                 .attr("y", height)
                 .attr("height", 0)
                 .attr("fill","steelblue");
-                
+
                 svg.selectAll(".bar")
                   .data(filteredData)
                   .attr("x", function(d) { return x(d.Year); })
@@ -239,30 +239,30 @@
                   .duration(800)
                   .attr("y", function(d) { return y(d.Graduate); })
                   .attr("height", function(d) { return height - y(d.Graduate); });
-                
-                    
 
-                
+
+
+
             });
-            
+
             //DROPDOWN MENU ---------------------------------------------------------------------------------------------------------
-            
-            /* When the user clicks on the button, 
+
+            /* When the user clicks on the button,
             toggle between hiding and showing the dropdown content */
             $(".dropbtn").on("click", function(){
                 $(this).siblings().toggleClass("show");
             });
-            
+
             $("#myDropdown2").on("click", "a", function(){
                 // Remove a year of data
-                if($(this).hasClass('checked')){ 
+                if($(this).hasClass('checked')){
                     $(this).removeClass('checked');
                 }
-                
+
                 // Add a year
-                else{ 
+                else{
                     $(this).addClass('checked');
-                    
+
                     svg.selectAll(".bar")
                     .data(filteredData)
 //                  .transition()
@@ -284,15 +284,15 @@
                 // Update domains (because of new data)
                 y.domain([0, d3.max(filteredData, function(d) { return d.Graduate; })]);
                 x.domain(filteredData.map(function(d) { return d.Year; }));
-                
+
                 // Update x and y axis
                 svg.select(".y.axis")
                     .transition().duration(800)
-                    .call(yAxis);              
+                    .call(yAxis);
                 svg.select(".x.axis")
                     .transition().duration(800)
                     .call(xAxis);
-                
+
                 // Add in new data bar
                 svg.selectAll(".bar")
                   .data(filteredData)
@@ -303,7 +303,7 @@
                 .attr("y", height)
                 .attr("height", 0)
                 .attr("fill", "steelblue");
-                
+
                 // Animate all bars to correct height
                 svg.selectAll(".bar")
                 .data(filteredData)
