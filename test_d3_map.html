@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+
+        <style>
+
+            .LAND path, .ISLANDS path{
+                fill: #56002a;
+                stroke: white;
+                stroke-width: 0.5;
+            }
+            .WATER path{
+                fill-opacity: 0;
+            }
+
+            path:hover{
+                fill: #ac1455;
+            }
+
+        </style>
+    </head>
+    <body>
+        <p>Hi!</p>
+
+        <!-- SCRIPTS ---------------------------------------------------------------------------------------------------------------------------->
+        <script>
+            var width = 600,
+                height = 900;
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+      //      var path = d3.geo.path();
+
+//            d3.json("ontario_municipalities.json", function(json) {
+//                console.log("hi");
+//                svg.selectAll("path")
+//                   .data(json.features)
+//                   .enter()
+//                   .append("path")
+//                   .attr("d", path);
+//
+//            });
+
+            d3.csv("2014_headcount", function(data){
+                color.domain([
+                    d3.min(data, function(d) { return d.value; }),
+                    d3.max(data, function(d) { return d.value; })
+                ]);
+
+                d3.json("ontario_municipalities.json", function(error, ont){
+                if (error) return console.error(error);
+
+
+
+                console.log(ont);
+
+                var projection = d3.geo.albers()
+                    .scale(2000)
+                    .translate([50, 650]);
+
+                var path = d3.geo.path()
+                    .projection(projection);
+
+                var subunit = svg.selectAll(".subunit")
+                    .data(topojson.feature(ont, ont.objects.MUNICIPAL_BOUNDARY_UPPER_TIER_AND_DISTRICT).features)
+                    .enter().append("g")
+                    .attr("class", function(d){ return d.properties.NAME + " " + d.properties.EXTENT;});
+
+                subunit.append("path")
+                    .attr("d", path);
+
+                });
+
+            })
+
+
+
+
+
+        </script>
+
+    </body>
+</html>
