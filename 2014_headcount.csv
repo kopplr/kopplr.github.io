@@ -1,0 +1,76 @@
+CAREER,CND_COUNTY_CODE,HEADCOUNT,COUNTY_NAME_FULL,COUNTY_NAME
+GRAD,,148,,
+GRAD,2,40,Ottawa-Carleton Regional Municipality,OTTAWA-CARLETON
+GRAD,4,3,Renfrew County,RENFREW
+GRAD,5,3,"Stormont, Dundas and Glengarry United Counties","STORMONT, DUNDAS AND GLENGARRY"
+GRAD,11,2,Kenora District,KENORA
+GRAD,13,12,Thunder Bay District,THUNDER BAY
+GRAD,28,11,Sudbury Regional Municipality,SUDBURY
+GRAD,33,8,Nipissing District,NIPISSING
+GRAD,41,3,Elgin County,ELGIN
+GRAD,42,22,Essex County,ESSEX
+GRAD,43,1,Huron County,HURON
+GRAD,44,4,Kent County,KENT
+GRAD,45,6,Lambton County,LAMBTON
+GRAD,46,46,Middlesex County,MIDDLESEX
+GRAD,51,38,Brant County,BRANT
+GRAD,52,2,Bruce County,BRUCE
+GRAD,53,5,Grey County,GREY
+GRAD,55,12,Oxford County,OXFORD
+GRAD,56,2,Perth County,PERTH
+GRAD,57,104,Waterloo Regional Municipality,WATERLOO
+GRAD,58,48,Wellington County,WELLINGTON
+GRAD,62,70,Niagara Regional Municipality,NIAGARA
+GRAD,65,34,Haldimand-Norfolk Regional Municipality,HALDIMAND-NORFOLK
+GRAD,66,1355,Hamilton-Wentworth Regional Municipality,HAMILTON-WENTWORTH
+GRAD,72,342,Halton Regional Municipality,HALTON
+GRAD,73,370,Peel Regional Municipality,PEEL
+GRAD,74,27,Simcoe County,SIMCOE
+GRAD,76,475,Toronto Metropolitan Municipality,TORONTO
+GRAD,84,171,York Regional Municipality,YORK
+GRAD,85,63,Durham Regional Municipality,DURHAM
+GRAD,90,1,Northumberland County,NORTHUMBERLAND
+GRAD,91,13,Frontenac County,FRONTENAC
+GRAD,92,4,Hastings County,HASTINGS
+GRAD,93,1,Leeds and Grenville United Counties,LEEDS AND GRENVILLE
+GRAD,96,5,Peterborough County,PETERBOROUGH
+GRAD,99,897,Unknown,UNKNOWN
+UNDERGRAD,32,1,Muskoka District Municipality,MUSKOKA
+UNDERGRAD,1,4,Lanark County,LANARK
+UNDERGRAD,11,6,Kenora District,KENORA
+UNDERGRAD,34,7,Parry Sound District,PARRY SOUND
+UNDERGRAD,5,8,"Stormont, Dundas and Glengarry United Counties","STORMONT, DUNDAS AND GLENGARRY"
+UNDERGRAD,43,8,Huron County,HURON
+UNDERGRAD,90,9,Northumberland County,NORTHUMBERLAND
+UNDERGRAD,4,12,Renfrew County,RENFREW
+UNDERGRAD,13,13,Thunder Bay District,THUNDER BAY
+UNDERGRAD,93,13,Leeds and Grenville United Counties,LEEDS AND GRENVILLE
+UNDERGRAD,33,15,Nipissing District,NIPISSING
+UNDERGRAD,52,16,Bruce County,BRUCE
+UNDERGRAD,28,26,Sudbury Regional Municipality,SUDBURY
+UNDERGRAD,53,36,Grey County,GREY
+UNDERGRAD,56,36,Perth County,PERTH
+UNDERGRAD,96,38,Peterborough County,PETERBOROUGH
+UNDERGRAD,92,44,Hastings County,HASTINGS
+UNDERGRAD,44,47,Kent County,KENT
+UNDERGRAD,41,49,Elgin County,ELGIN
+UNDERGRAD,45,61,Lambton County,LAMBTON
+UNDERGRAD,55,66,Oxford County,OXFORD
+UNDERGRAD,42,82,Essex County,ESSEX
+UNDERGRAD,91,85,Frontenac County,FRONTENAC
+UNDERGRAD,2,121,Ottawa-Carleton Regional Municipality,OTTAWA-CARLETON
+UNDERGRAD,74,232,Simcoe County,SIMCOE
+UNDERGRAD,46,263,Middlesex County,MIDDLESEX
+UNDERGRAD,58,295,Wellington County,WELLINGTON
+UNDERGRAD,65,326,Haldimand-Norfolk Regional Municipality,HALDIMAND-NORFOLK
+UNDERGRAD,51,348,Brant County,BRANT
+UNDERGRAD,,395,,
+UNDERGRAD,62,512,Niagara Regional Municipality,NIAGARA
+UNDERGRAD,85,595,Durham Regional Municipality,DURHAM
+UNDERGRAD,57,798,Waterloo Regional Municipality,WATERLOO
+UNDERGRAD,84,1978,York Regional Municipality,YORK
+UNDERGRAD,72,2515,Halton Regional Municipality,HALTON
+UNDERGRAD,76,2527,Toronto Metropolitan Municipality,TORONTO
+UNDERGRAD,99,3263,Unknown,UNKNOWN
+UNDERGRAD,73,4295,Peel Regional Municipality,PEEL
+UNDERGRAD,66,6624,Hamilton-Wentworth Regional Municipality,HAMILTON-WENTWORTH
